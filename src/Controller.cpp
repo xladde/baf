@@ -46,24 +46,28 @@ Controller& Controller::operator=( const Controller& c )
 }
 
 
-std::map< std::string, AbstractDevice* > Controller::get_devicelist() const
+std::map<std::string, std::vector< AbstractDevice* > > Controller::get_devicelist() const
     { return this->__devices_M; }
 
-void Controller::set_devicelist( std::map< std::string, AbstractDevice* > m )
+void Controller::set_devicelist( std::map<std::string, std::vector< AbstractDevice* > > m )
     { this->__devices_M = m; }
 
-std::map< std::string, AbstractDriver* > Controller::get_driverlist() const
+std::map<std::string, std::vector< AbstractDevice* > > Controller::get_driverlist() const
     { return this->__drivers_M; }
 
-void Controller::set_driverlist( std::map< std::string, AbstractDriver* > m )
+void Controller::set_driverlist( std::map<std::string, std::vector< AbstractDevice* > > m )
     { this->__drivers_M = m; }
 
-std::map< std::string, AbstractProtocol* > Controller::get_protocollist() const
+std::map<std::string, std::vector< AbstractDevice* > > Controller::get_protocollist() const
     { return this->__protocols_M; }
 
-void Controller::set_protocollist( std::map< std::string, AbstractProtocol* > m )
+void Controller::set_protocollist( std::map<std::string, std::vector< AbstractDevice* > > m )
     { this->__protocols_M = m; }
 
+
+AbstractDriver* Controller::get_driver( unsigned char ){ return NULL; }
+AbstractProtocol* Controller::get_protocol( unsigned char ){ return NULL; }
+AbstractDevice* Controller::get_device( std::string ){ return NULL; }
 
 /**
  * ** Negative Tested.
@@ -129,17 +133,27 @@ Controller::map_devices( std::string p, bool rec=true )
 }
 
 std::map<std::string, AbstractDevice* > 
-init_devicemap( std::map< unsigned char, std::vector< std::string > > m )
+Controller::init_devicemap( std::map< unsigned char, std::vector< std::string > > m )
 {
+    std::string                                                     key;
     std::map<std::string, AbstractDevice* >                         dev_map;
     std::map< unsigned char, std::vector< std::string > >::iterator it;
     std::vector< std::string >::iterator                            jt;
 
-    for( it = m.begin(); it != m.end(); i++ )
+    for( it = m.begin(); it != m.end(); it++ )
     {
         for( jt = it->second.begin(); jt != it->second.end(); jt++ )
         {
-            AbstractDevice *tmp = new XDevice()
+            AbstractDevice *tmp = new XDevice( *jt, it->first, get_driver( it->first ) );
+            for( int i = jt->size()-1; i >= 0; i-- )
+            {
+                if( jt->at( i ) == '/' )
+                {
+                    key.assign( jt->begin()+i, jt->end() );
+                    break;
+                } else continue;
+                dev_map.insert( make_pair( key, tmp ) );
+            }
         }
     }
 

@@ -57,7 +57,7 @@ AbstractDriver.o: $(SRCDIR)/AbstractDriver.cpp $(SRCDIR)/AbstractDriver.h\
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/AbstractDriver.cpp -o AbstractDriver.o $(CXXLIBS)
 
 AbstractDevice.o: $(SRCDIR)/AbstractDevice.cpp $(SRCDIR)/AbstractDevice.h\
-	$(SRCDIR)/AbstractDriver.h $(SRCDIR)/Controller.h 
+	$(SRCDIR)/AbstractDriver.h
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/AbstractDevice.cpp -o AbstractDevice.o $(CXXLIBS)
 
 AbstractProtocol.o: $(SRCDIR)/AbstractProtocol.cpp $(SRCDIR)/AbstractProtocol.h

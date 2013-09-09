@@ -8,8 +8,10 @@
 
 int main( int argc, char **argv )
 {
-    Controller *c = new Controller();
+    Main *MAIN = new Main( argc, argv );
 
-    delete c; 
+    /* code */
+
+    MAIN; 
     return 0;
 }

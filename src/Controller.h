@@ -10,12 +10,12 @@
 
 #include <sys/types.h>
 #include <dirent.h>
+#include <string.h>
 
 #include <string>
 #include <vector>
 #include <map>
 
-#include "values.h"
 #include "AbstractDriver.h"
 #include "AbstractDevice.h"
 #include "AbstractProtocol.h"
@@ -35,23 +35,23 @@ class AbstractProtocol;
 class Controller
 {
 public:
-    // ------------------------------------------------- Instance handling
+    // ----------------------------------------------------- Instance handling
     Controller();
     Controller( const Controller& );
     ~Controller();
     Controller& operator=( const Controller& );
 
     // ------------------------------------------------- Setter and Getter
-    std::map< std::string, AbstractDevice* > get_devicelist() const;
-    void set_devicelist( std::map< std::string, AbstractDevice* > );
+    std::map<std::string, std::vector< AbstractDevice* > > get_devicelist() const;
+    void set_devicelist( std::map<std::string, std::vector< AbstractDevice* > > );
 
-    std::map< std::string, AbstractDriver* > get_driverlist() const;
-    void set_driverlist( std::map< std::string, AbstractDriver* > );
+    std::map<std::string, std::vector< AbstractDriver* > > get_driverlist() const;
+    void set_driverlist( std::map<std::string, std::vector< AbstractDriver* > > );
 
-    std::map< std::string, AbstractProtocol* > get_protocollist() const;
-    void set_protocollist( std::map< std::string, AbstractProtocol* > );
+    std::map<std::string, std::vector< AbstractProtocol* > > get_protocollist() const;
+    void set_protocollist( std::map<std::string, std::vector< AbstractProtocol* > > );
  
-    // -------------------------------------------------- Member Functions
+    // ------------------------------------------------------ Member Functions
     /**
      * @brief Scans (recursively) a directory for a given filetype and stores
      *        paths in a vector.
@@ -80,12 +80,16 @@ public:
     std::map<std::string, AbstractDevice* > 
     init_devicemap( std::map< unsigned char, std::vector< std::string > > m );
 
+    AbstractDriver* get_driver( unsigned char );
+    AbstractProtocol* get_protocol( unsigned char );
+    AbstractDevice* get_device( std::string );
+
 protected:
 private:
-    // ------------------------------------------------- Member attributes
-    std::map<std::string, AbstractDevice* >   __devices_M;
-    std::map<std::string, AbstractDriver* >   __drivers_M;
-    std::map<std::string, AbstractProtocol* > __protocols_M;
+    // ----------------------------------------------------- Member attributes
+    std::map<std::string, std::vector< AbstractDevice* > >   __devices_M;
+    std::map<std::string, std::vector< AbstractDriver* > >   __drivers_M;
+    std::map<std::string, std::vector< AbstractProtocol* > > __protocols_M;
 }; // end class Controller
 
 #endif /* _CONTROLLER_H_ */
