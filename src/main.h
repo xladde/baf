@@ -12,11 +12,25 @@ class Main
 {
 public:
     Main( int argc, char **argv )
-        { /* code */ }
+    {
+        std::string initpath;
+        __global_controller = new Controller();
+        if( argc < 2 )
+        {
+            initpath = "../";
+        } else 
+        {
+            for( int i = 1; i < argc; i++ )
+                { __global_arguments.push_back( std::string( argv[i] ) ); }
+            initpath = __global_arguments[0];
+        }
+        __global_controller->init_devicemap
+            ( __global_controller->map_devices( initpath, true ) );
+    }
     ~Main()
     {
         if( __global_controller )
-            { /* code */ }
+            { delete __global_controller; }
     }
 private:
     std::vector< std::string > __global_arguments;

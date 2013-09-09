@@ -31,7 +31,18 @@ Controller::Controller( const Controller& c )
  *
  */
 Controller::~Controller()
-    { /* Nothing todo so far */ }
+{ 
+    std::map<std::string, AbstractDevice* >::iterator dei;
+    std::map< unsigned char, AbstractDriver* >::iterator dri;
+    std::map< unsigned char, AbstractConverter* >::iterator coi;
+
+    for( dei = _devices_m.begin(); dei != _devices_m.end(); dei++ )
+        { if( dei->second ) delete dei->second; }
+    for( dri = _drivers_m.begin(); dri != _drivers_m.end(); dei++ )
+        { if( dri->second ) delete dri->second; }
+    for( coi = _converter_m.begin(); coi != _converter_m.end(); coi++ )
+        { if( coi->second ) delete coi->second; }
+}
 
 /**
  *

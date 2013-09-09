@@ -18,7 +18,6 @@ CXXLIBS=\
 	-lpthread\
 	-lstdc++\
 	-std=c++0x
-LXX=ld
 
 SRCDIR=./src
 BINDIR=./bin

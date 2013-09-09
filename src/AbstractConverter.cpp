@@ -22,7 +22,14 @@ XConverter::~XConverter()
     { /* nothing to do in example */ }
 XConverter& XConverter::operator=( const XConverter& ex )
     { return *this; }
+
 std::string XConverter::encode( std::string str )
-    { return str+="ENC"; }
+{ 
+    str.erase( str.end()-1 );
+    return str += 'E'; 
+}
 std::string XConverter::decode( std::string str )
-    { return str+="DEC"; }
+{ 
+    str.erase( str.end()-1 );
+    return str += 'D'; 
+}
