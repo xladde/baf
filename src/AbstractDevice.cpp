@@ -46,6 +46,8 @@ XDevice& XDevice::operator=( const XDevice& d )
     return (*this);
 }
 
+
+
 void XDevice::set_path( std::string p )       { _path_m = p; }
 std::string XDevice::get_path() const         { return _path_m; }
 

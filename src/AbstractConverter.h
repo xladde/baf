@@ -1,10 +1,10 @@
 /**
- * @file        AbstractProtocol.h (GNU GPL3)
+ * @file        AbstractConverter.h (GNU GPL3)
  * @author      t.j.
  * @version     2013-09
  */
-#ifndef _ABSTRACT_PROTOCOL_H_
-#define _ABSTRACT_PROTOCOL_H_
+#ifndef _ABSTRACT_CONVERTER_H_
+#define _ABSTRACT_CONVERTER_H_
 
 #include "Controller.h"
 
@@ -30,4 +30,4 @@ public:
     virtual std::string decode( std::string );
 }; // end of example implementation
 
-#endif /* _ABSTRACT_PROTOCOL_H_ */
+#endif /* _ABSTRACT_CONVERTER_H_ */

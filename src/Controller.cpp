@@ -58,10 +58,10 @@ std::map< unsigned char, AbstractDriver* > Controller::get_driverlist() const
 void Controller::set_driverlist( std::map< unsigned char, AbstractDriver* > m )
     { this->_drivers_m = m; }
 
-std::map< unsigned char, AbstractProtocol* > Controller::get_converterlist() const
+std::map< unsigned char, AbstractConverter* > Controller::get_converterlist() const
     { return this->_converter_m; }
 
-void Controller::set_converterlist( std::map< unsigned char, AbstractProtocol* > m )
+void Controller::set_converterlist( std::map< unsigned char, AbstractConverter* > m )
     { this->_converter_m = m; }
 
 
@@ -73,9 +73,9 @@ AbstractDriver* Controller::get_driver( unsigned char key )
     else { return NULL; }
 }
 
-AbstractProtocol* Controller::get_converter( unsigned char key )
+AbstractConverter* Controller::get_converter( unsigned char key )
 {
-    std::map< unsigned char, AbstractProtocol* >::iterator it;
+    std::map< unsigned char, AbstractConverter* >::iterator it;
     it = _converter_m.find( key );
     if( it != _converter_m.end() ) { return it->second; } 
     else { return NULL; }
