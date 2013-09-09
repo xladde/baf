@@ -46,28 +46,48 @@ Controller& Controller::operator=( const Controller& c )
 }
 
 
-std::map<std::string, std::vector< AbstractDevice* > > Controller::get_devicelist() const
+std::map<std::string, AbstractDevice* > Controller::get_devicelist() const
     { return this->__devices_M; }
 
-void Controller::set_devicelist( std::map<std::string, std::vector< AbstractDevice* > > m )
+void Controller::set_devicelist( std::map<std::string, AbstractDevice* > m )
     { this->__devices_M = m; }
 
-std::map<std::string, std::vector< AbstractDevice* > > Controller::get_driverlist() const
+std::map< unsigned char, AbstractDriver* > Controller::get_driverlist() const
     { return this->__drivers_M; }
 
-void Controller::set_driverlist( std::map<std::string, std::vector< AbstractDevice* > > m )
+void Controller::set_driverlist( std::map< unsigned char, AbstractDriver* > m )
     { this->__drivers_M = m; }
 
-std::map<std::string, std::vector< AbstractDevice* > > Controller::get_protocollist() const
+std::map< unsigned char, AbstractProtocol* > Controller::get_protocollist() const
     { return this->__protocols_M; }
 
-void Controller::set_protocollist( std::map<std::string, std::vector< AbstractDevice* > > m )
+void Controller::set_protocollist( std::map< unsigned char, AbstractProtocol* > m )
     { this->__protocols_M = m; }
 
 
-AbstractDriver* Controller::get_driver( unsigned char ){ return NULL; }
-AbstractProtocol* Controller::get_protocol( unsigned char ){ return NULL; }
-AbstractDevice* Controller::get_device( std::string ){ return NULL; }
+AbstractDriver* Controller::get_driver( unsigned char key )
+{
+    std::map< unsigned char, AbstractDriver* >::iterator it;
+    it = __drivers_M.find( key );
+    if( it != __drivers_M.end() ) { return it->second; } 
+    else { return NULL; }
+}
+
+AbstractProtocol* Controller::get_protocol( unsigned char key )
+{
+    std::map< unsigned char, AbstractProtocol* >::iterator it;
+    it = __protocols_M.find( key );
+    if( it != __protocols_M.end() ) { return it->second; } 
+    else { return NULL; }
+}
+
+AbstractDevice* Controller::get_device( std::string key )
+{ 
+    std::map< std::string, AbstractDevice* >::iterator it;
+    it = __devices_M.find( key );
+    if( it != __devices_M.end() ) { return it->second; }
+    else { return NULL; } 
+}
 
 /**
  * ** Negative Tested.

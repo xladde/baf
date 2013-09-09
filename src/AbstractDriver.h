@@ -9,6 +9,7 @@
 #include <fstream>
 
 #include "Controller.h"
+#include "AbstractProtocol.h"
 #include "AbstractDevice.h"
 
 /** 
@@ -36,7 +37,7 @@ public:
 };
 
 
-// XDriver declarations ------------------------------------------------------
+// XDriver declarations ------------------------------------------------------EXAMPLE
 class XDriver : AbstractDriver
 {
 public:

@@ -7,21 +7,29 @@
 
 # BUILD CONFIGURATIONS -------------------------------------------------------
 NAME=baf
+
 CXX=g++
-CXXFLAGS=-Wall -ggdb
-CXXLIBS=-lpthread -lstdc++ -std=c++0x
+
+CXXFLAGS=\
+	-Wall\
+	-ggdb
+
+CXXLIBS=\
+	-lpthread\
+	-lstdc++\
+	-std=c++0x
 LXX=ld
 
 SRCDIR=./src
 BINDIR=./bin
 DOCDIR=./doc
 
-DEP=main.o \
+DEP=\
+	main.o \
 	Controller.o \
 	AbstractDriver.o \
 	AbstractProtocol.o \
 	AbstractDevice.o 
-#	BasicCharDevice.o
 
 # BUILD OPTIONS --------------------------------------------------------------
 .PHONY: quick
@@ -53,7 +61,7 @@ Controller.o: $(SRCDIR)/Controller.cpp $(SRCDIR)/Controller.h
 
 # Core and abstract objects		
 AbstractDriver.o: $(SRCDIR)/AbstractDriver.cpp $(SRCDIR)/AbstractDriver.h\
-	$(SRCDIR)/AbstractDevice.h $(SRCDIR)/Controller.h 
+	$(SRCDIR)/AbstractDevice.h $(SRCDIR)/Controller.h  $(SRCDIR)/AbstractProtocol.h 
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/AbstractDriver.cpp -o AbstractDriver.o $(CXXLIBS)
 
 AbstractDevice.o: $(SRCDIR)/AbstractDevice.cpp $(SRCDIR)/AbstractDevice.h\
@@ -63,11 +71,4 @@ AbstractDevice.o: $(SRCDIR)/AbstractDevice.cpp $(SRCDIR)/AbstractDevice.h\
 AbstractProtocol.o: $(SRCDIR)/AbstractProtocol.cpp $(SRCDIR)/AbstractProtocol.h
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/AbstractProtocol.cpp -o AbstractProtocol.o $(CXXLIBS)
 
-# Concrete implementations
-#BasicCharDevice.o: $(SRCDIR)/BasicCharDevice.cpp $(SRCDIR)/BasicCharDevice.h\
-#	$(SRCDIR)/AbstractDevice.h
-#	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/BasicCharDevice.cpp -o BasicCharDevice.o $(CXXLIBS)
-
-#BasicCharDriver.o: $(SRCDIR)/BasicCharDriver.cpp $(SRCDIR)/BasicCharDriver.h\
-#	$(SRCDIR)/Controller.h
-#	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/BasicCharDriver.cpp -o BasicCharDriver.o $(CXXLIBS)
+# CONCRETE IMPLEMENTATIONS ---------------------------------------------------

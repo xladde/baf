@@ -18,7 +18,7 @@ public:
 
 }; // end class AbstractProtocol
 
-
+// XProtocol Definitions -----------------------------------------------------EXAMPLE
 class XProtocol : AbstractProtocol
 {
 public:

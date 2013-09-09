@@ -16,7 +16,7 @@ void AbstractDevice::close()                     {}
 std::string AbstractDevice::read_device( void )  { return std::string(); }
 void AbstractDevice::write_device( std::string ) {}
 
-// XDevice defs --------------------------------------------------------------
+// XDevice defs --------------------------------------------------------------EXAMPLE
 XDevice::XDevice() { _driver_m = NULL; }
 
 XDevice::XDevice( std::string p, unsigned char t, AbstractDriver* d ) 
@@ -46,18 +46,18 @@ XDevice& XDevice::operator=( const XDevice& d )
     return (*this);
 }
 
-void XDevice::set_path( std::string p )         { _path_m = p; }
-std::string XDevice::get_path() const                { return _path_m; }
+void XDevice::set_path( std::string p )       { _path_m = p; }
+std::string XDevice::get_path() const         { return _path_m; }
 
-void XDevice::set_type( unsigned char t )       { _type_m = t; }
-unsigned char XDevice::get_type() const               { return _type_m; }
+void XDevice::set_type( unsigned char t )     { _type_m = t; }
+unsigned char XDevice::get_type() const       { return _type_m; }
     
-void XDevice::set_driver( AbstractDriver* d )   { if( d ) _driver_m = d; }
-AbstractDriver* XDevice::get_driver() const           { return _driver_m; }
+void XDevice::set_driver( AbstractDriver* d ) { if( d ) _driver_m = d; }
+AbstractDriver* XDevice::get_driver() const   { return _driver_m; }
     
-void XDevice::open()                            {}
-bool XDevice::is_open()                         { return true; }
-void XDevice::close()                           {}
+void XDevice::open()                          {  }
+bool XDevice::is_open()                       { return true; }
+void XDevice::close()                         {  }
 
 std::string XDevice::read_device( void ) 
 {

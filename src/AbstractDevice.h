@@ -38,6 +38,7 @@ public:
     virtual void write_device( std::string );
 };
 
+// EXAMPLE
 class XDevice : public AbstractDevice
 {
 public:

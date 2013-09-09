@@ -42,14 +42,14 @@ public:
     Controller& operator=( const Controller& );
 
     // ------------------------------------------------- Setter and Getter
-    std::map<std::string, std::vector< AbstractDevice* > > get_devicelist() const;
-    void set_devicelist( std::map<std::string, std::vector< AbstractDevice* > > );
+    std::map<std::string, AbstractDevice* > get_devicelist() const;
+    void set_devicelist( std::map<std::string, AbstractDevice* > );
 
-    std::map<std::string, std::vector< AbstractDriver* > > get_driverlist() const;
-    void set_driverlist( std::map<std::string, std::vector< AbstractDriver* > > );
+    std::map< unsigned char, AbstractDriver* > get_driverlist() const;
+    void set_driverlist( std::map< unsigned char, AbstractDriver* > );
 
-    std::map<std::string, std::vector< AbstractProtocol* > > get_protocollist() const;
-    void set_protocollist( std::map<std::string, std::vector< AbstractProtocol* > > );
+    std::map< unsigned char, AbstractProtocol* > get_protocollist() const;
+    void set_protocollist( std::map< unsigned char, AbstractProtocol* > );
  
     // ------------------------------------------------------ Member Functions
     /**
@@ -87,9 +87,9 @@ public:
 protected:
 private:
     // ----------------------------------------------------- Member attributes
-    std::map<std::string, std::vector< AbstractDevice* > >   __devices_M;
-    std::map<std::string, std::vector< AbstractDriver* > >   __drivers_M;
-    std::map<std::string, std::vector< AbstractProtocol* > > __protocols_M;
+    std::map<std::string, AbstractDevice* >      __devices_M;
+    std::map< unsigned char, AbstractDriver* >   __drivers_M;
+    std::map< unsigned char, AbstractProtocol* > __protocols_M;
 }; // end class Controller
 
 #endif /* _CONTROLLER_H_ */
