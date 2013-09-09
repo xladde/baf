@@ -22,9 +22,9 @@ Controller::Controller()
  */
 Controller::Controller( const Controller& c )
 {
-    this->__devices_M   = c.get_devicelist();
-    this->__protocols_M = c.get_protocollist();
-    this->__drivers_M   = c.get_driverlist();
+    this->_devices_m   = c.get_devicelist();
+    this->_converter_m = c.get_converterlist();
+    this->_drivers_m   = c.get_driverlist();
 }
 
 /**
@@ -39,53 +39,53 @@ Controller::~Controller()
 Controller& Controller::operator=( const Controller& c )
 {
 
-    this->__devices_M   = c.get_devicelist();
-    this->__protocols_M = c.get_protocollist();
-    this->__drivers_M   = c.get_driverlist();
+    this->_devices_m   = c.get_devicelist();
+    this->_converter_m = c.get_converterlist();
+    this->_drivers_m   = c.get_driverlist();
     return *this;
 }
 
 
 std::map<std::string, AbstractDevice* > Controller::get_devicelist() const
-    { return this->__devices_M; }
+    { return this->_devices_m; }
 
 void Controller::set_devicelist( std::map<std::string, AbstractDevice* > m )
-    { this->__devices_M = m; }
+    { this->_devices_m = m; }
 
 std::map< unsigned char, AbstractDriver* > Controller::get_driverlist() const
-    { return this->__drivers_M; }
+    { return this->_drivers_m; }
 
 void Controller::set_driverlist( std::map< unsigned char, AbstractDriver* > m )
-    { this->__drivers_M = m; }
+    { this->_drivers_m = m; }
 
-std::map< unsigned char, AbstractProtocol* > Controller::get_protocollist() const
-    { return this->__protocols_M; }
+std::map< unsigned char, AbstractProtocol* > Controller::get_converterlist() const
+    { return this->_converter_m; }
 
-void Controller::set_protocollist( std::map< unsigned char, AbstractProtocol* > m )
-    { this->__protocols_M = m; }
+void Controller::set_converterlist( std::map< unsigned char, AbstractProtocol* > m )
+    { this->_converter_m = m; }
 
 
 AbstractDriver* Controller::get_driver( unsigned char key )
 {
     std::map< unsigned char, AbstractDriver* >::iterator it;
-    it = __drivers_M.find( key );
-    if( it != __drivers_M.end() ) { return it->second; } 
+    it = _drivers_m.find( key );
+    if( it != _drivers_m.end() ) { return it->second; } 
     else { return NULL; }
 }
 
-AbstractProtocol* Controller::get_protocol( unsigned char key )
+AbstractProtocol* Controller::get_converter( unsigned char key )
 {
     std::map< unsigned char, AbstractProtocol* >::iterator it;
-    it = __protocols_M.find( key );
-    if( it != __protocols_M.end() ) { return it->second; } 
+    it = _converter_m.find( key );
+    if( it != _converter_m.end() ) { return it->second; } 
     else { return NULL; }
 }
 
 AbstractDevice* Controller::get_device( std::string key )
 { 
     std::map< std::string, AbstractDevice* >::iterator it;
-    it = __devices_M.find( key );
-    if( it != __devices_M.end() ) { return it->second; }
+    it = _devices_m.find( key );
+    if( it != _devices_m.end() ) { return it->second; }
     else { return NULL; } 
 }
 

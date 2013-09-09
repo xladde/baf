@@ -1,3 +1,8 @@
+/**
+ * @file        main.h (GNU GPL3)
+ * @author      t.j.
+ * @version     2013-09
+ */
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
