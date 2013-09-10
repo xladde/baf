@@ -28,7 +28,7 @@ Controller::Controller( const Controller& c )
 }
 
 /**
- *
+ * 
  */
 Controller::~Controller()
 { 
@@ -49,13 +49,11 @@ Controller::~Controller()
  */
 Controller& Controller::operator=( const Controller& c )
 {
-
     this->_devices_m   = c.get_devicelist();
     this->_converter_m = c.get_converterlist();
     this->_drivers_m   = c.get_driverlist();
     return *this;
 }
-
 
 std::map<std::string, AbstractDevice* > Controller::get_devicelist() const
     { return this->_devices_m; }

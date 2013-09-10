@@ -24,8 +24,16 @@ public:
                 { __global_arguments.push_back( std::string( argv[i] ) ); }
             initpath = __global_arguments[0];
         }
+        /**
+         * @todo Make it Work!
+         */
         __global_controller->init_devicemap
             ( __global_controller->map_devices( initpath, true ) );
+
+        std::map< std::string, AbstractDevice*> m = __global_controller->get_devicelist();
+        for( std::map< std::string, AbstractDevice*>::iterator it = m.begin();
+            it != m.end(); it++ )
+            { std::cout << it->first << ":\t" << it->second << std::endl; }
     }
     ~Main()
     {

@@ -5,7 +5,6 @@
  */
 #include "main.h"
 
-
 int main( int argc, char **argv )
 {
     Main *MAIN = new Main( argc, argv );
