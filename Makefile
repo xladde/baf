@@ -35,6 +35,12 @@ DEP=\
 quick: $(DEP)
 	$(CXX) $(CXXFLAGS) -o $(BINDIR)/$(NAME) $(DEP) $(CXXLIBS) 
 
+.PHONY: tex
+tex: $(DOCDIR)/tex/index.tex
+	pdflatex --file-line-error -output-directory=$(DOCDIR)/tex/ $(DOCDIR)/tex/index.tex
+	pdflatex -output-directory=$(DOCDIR)/tex/ $(DOCDIR)/tex/index.tex
+	rm texput.log
+
 .PHONY: documentation
 documentation:
 	doxygen doxy-1.7.6.1.conf
