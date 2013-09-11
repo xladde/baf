@@ -43,6 +43,9 @@ documentation:
 clean:
 	clear
 	sudo rm *.o
+	sudo rm -r $(DOCDIR)/html/*
+	sudo rm -r $(DOCDIR)/man/*
+
 
 .PHONY: all
 all: $(DEP)
