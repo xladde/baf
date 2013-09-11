@@ -25,9 +25,9 @@
  * @todo resolve circular dependencies in 'AbstractDriver', 'AbstractDevcie',
  * 'AbstractConverter' and 'Controller'  
  */
-class AbstractDriver;
-class AbstractDevice;
-class AbstractConverter;
+//class AbstractDriver;
+//class AbstractDevice;
+//class AbstractConverter;
 
 /**
  *
