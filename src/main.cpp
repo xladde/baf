@@ -12,6 +12,6 @@ int main( int argc, char **argv )
 
     /* code */
 
-    MAIN; 
+    delete MAIN; 
     return 0;
 }
