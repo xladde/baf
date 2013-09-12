@@ -13,9 +13,9 @@ std::string AbstractDriver::__read_raw( AbstractDevice* ) { return std::string()
 
 
 // XDriver defs --------------------------------------------------------------EXAMPLE
-XDriver::XDriver( Controller* c ) : AbstractDriver() 
+XDriver::XDriver( Controller* c ) : AbstractDriver< std::string >() 
     { _ctrl_m = c; } // no matter if (c == NULL)
-XDriver::XDriver( const XDriver& d )  : AbstractDriver()
+XDriver::XDriver( const XDriver& d )  : AbstractDriver< std::string >()
     { _ctrl_m = d.get_controller(); }
 XDriver::~XDriver(){}
 XDriver& XDriver::operator=( const XDriver& d ) 
