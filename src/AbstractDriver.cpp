@@ -30,9 +30,9 @@ Controller* XDriver::get_controller() const     { return _ctrl_m; }
 // USING 'XDevice' instead of Abstract Class/Interface.
 void XDriver::__write_raw( XDevice* d, std::string str )
 {
-    std::ofstream     out;
-    AbstractProtocol *p;
-    std::string       buf;
+    std::ofstream      out;
+    AbstractConverter *p;
+    std::string        buf;
     if( d &&_ctrl_m )
     { // check whether 'd' and the controller are valid
         out.open( d->get_path() );
@@ -40,10 +40,10 @@ void XDriver::__write_raw( XDevice* d, std::string str )
         {
             /**
              * @todo Get Type of device (+ Test).
-             * @todo Get corresponding Converter (Type AbstractProtocol (+ Test)).
+             * @todo Get corresponding Converter (Type AbstractConverter (+ Test)).
              * @todo Encode string (+ Test).
              */
-            p = _ctrl_m->get_protocol( d->get_type() );
+            p = _ctrl_m->get_converter( d->get_type() );
             if( p )
             {
                 buf = p->encode( str );
@@ -60,7 +60,7 @@ std::string XDriver::__read_raw( XDevice* d )
 {
     std::ifstream     in;
     std::string       str, buf;
-    AbstractProtocol *p;
+    AbstractConverter *p;
     if( d &&_ctrl_m )
     { // check whether 'd' and the controller are valid
         in.open( d->get_path() );
@@ -68,10 +68,10 @@ std::string XDriver::__read_raw( XDevice* d )
         {
             /**
              * @todo Get Type of device.
-             * @todo Get corresponding Converter (Type AbstractProtocol).
+             * @todo Get corresponding Converter (Type AbstractConverter).
              * @todo Decode string.
              */
-            p = _ctrl_m->get_protocol( d->get_type() );
+            p = _ctrl_m->get_converter( d->get_type() );
             if( p )
             {
                 buf = p->decode( str );

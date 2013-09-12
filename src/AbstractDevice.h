@@ -36,6 +36,8 @@ public:
     virtual void close();
     virtual std::string read_device( void );
     virtual void write_device( std::string );
+
+    virtual std::string to_str() = 0;//{ return std::string; }
 };
 
 // EXAMPLE
@@ -63,6 +65,8 @@ public:
 
     std::string read_device( void );
     void write_device( std::string );
+
+    std::string to_str() { return _path_m; }
 
 private:
     std::string     _path_m;

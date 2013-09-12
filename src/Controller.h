@@ -18,16 +18,16 @@
 
 #include "AbstractDriver.h"
 #include "AbstractDevice.h"
-#include "AbstractProtocol.h"
+#include "AbstractConverter.h"
 
 /** 
  * @brief Forward declarations of class 'AbstractDriver'.
  * @todo resolve circular dependencies in 'AbstractDriver', 'AbstractDevcie',
- * 'AbstractProtocol' and 'Controller'  
+ * 'AbstractConverter' and 'Controller'  
  */
-class AbstractDriver;
-class AbstractDevice;
-class AbstractProtocol;
+//class AbstractDriver;
+//class AbstractDevice;
+//class AbstractConverter;
 
 /**
  *
@@ -48,8 +48,8 @@ public:
     std::map< unsigned char, AbstractDriver* > get_driverlist() const;
     void set_driverlist( std::map< unsigned char, AbstractDriver* > );
 
-    std::map< unsigned char, AbstractProtocol* > get_protocollist() const;
-    void set_protocollist( std::map< unsigned char, AbstractProtocol* > );
+    std::map< unsigned char, AbstractConverter* > get_converterlist() const;
+    void set_converterlist( std::map< unsigned char, AbstractConverter* > );
  
     // ------------------------------------------------------ Member Functions
     /**
@@ -81,15 +81,15 @@ public:
     init_devicemap( std::map< unsigned char, std::vector< std::string > > m );
 
     AbstractDriver* get_driver( unsigned char );
-    AbstractProtocol* get_protocol( unsigned char );
+    AbstractConverter* get_converter( unsigned char );
     AbstractDevice* get_device( std::string );
 
 protected:
 private:
     // ----------------------------------------------------- Member attributes
-    std::map<std::string, AbstractDevice* >      __devices_M;
-    std::map< unsigned char, AbstractDriver* >   __drivers_M;
-    std::map< unsigned char, AbstractProtocol* > __protocols_M;
+    std::map<std::string, AbstractDevice* >       _devices_m;
+    std::map< unsigned char, AbstractDriver* >    _drivers_m;
+    std::map< unsigned char, AbstractConverter* > _converter_m;
 }; // end class Controller
 
 #endif /* _CONTROLLER_H_ */

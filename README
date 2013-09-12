@@ -18,4 +18,4 @@ Therefore please contact the administrator of this repository.
 * '$ make documentation' builds the doc inside ./doc/html. This requires Doxygen 1.7
 * '$ make quick' just compiles the sources with additional gdb infos.
 * '$ make all' builds the documentation and sources and strips the final binary
-* '$ make clean' cleans the directory and deletes the documentation.
+* '$ make clean' cleans the directory and deletes the documentation (if no deletition error occurs).

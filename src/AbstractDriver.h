@@ -9,16 +9,16 @@
 #include <fstream>
 
 #include "Controller.h"
-#include "AbstractProtocol.h"
+#include "AbstractConverter.h"
 #include "AbstractDevice.h"
 
 /** 
  * @brief Forward declarations of class 'AbstractDriver'.
  * @todo resolve circular dependencies in 'AbstractDriver', 'AbstractDevcie',
- * 'AbstractProtocol' and 'Controller'  
+ * 'AbstractConverter' and 'Controller'  
  */
 class Controller;
-class AbstractProtocol;
+class AbstractConverter;
 class AbstractDevice;
     class XDevice;
 /**
