@@ -18,7 +18,6 @@ CXXLIBS=\
 	-lpthread\
 	-lstdc++\
 	-std=c++0x
-LXX=ld
 
 SRCDIR=./src
 BINDIR=./bin
@@ -28,13 +27,19 @@ DEP=\
 	main.o \
 	Controller.o \
 	AbstractDriver.o \
-	AbstractProtocol.o \
+	AbstractConverter.o \
 	AbstractDevice.o 
 
 # BUILD OPTIONS --------------------------------------------------------------
 .PHONY: quick
 quick: $(DEP)
 	$(CXX) $(CXXFLAGS) -o $(BINDIR)/$(NAME) $(DEP) $(CXXLIBS) 
+
+.PHONY: tex
+tex: $(DOCDIR)/tex/index.tex
+	pdflatex --file-line-error -output-directory=$(DOCDIR)/tex/ $(DOCDIR)/tex/index.tex
+	pdflatex -output-directory=$(DOCDIR)/tex/ $(DOCDIR)/tex/index.tex
+	rm texput.log
 
 .PHONY: documentation
 documentation:
@@ -44,6 +49,9 @@ documentation:
 clean:
 	clear
 	sudo rm *.o
+	sudo rm -r $(DOCDIR)/html/*
+	sudo rm -r $(DOCDIR)/man/*
+
 
 .PHONY: all
 all: $(DEP)
@@ -61,14 +69,14 @@ Controller.o: $(SRCDIR)/Controller.cpp $(SRCDIR)/Controller.h
 
 # Core and abstract objects		
 AbstractDriver.o: $(SRCDIR)/AbstractDriver.cpp $(SRCDIR)/AbstractDriver.h\
-	$(SRCDIR)/AbstractDevice.h $(SRCDIR)/Controller.h  $(SRCDIR)/AbstractProtocol.h 
+	$(SRCDIR)/AbstractDevice.h $(SRCDIR)/Controller.h  $(SRCDIR)/AbstractConverter.h 
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/AbstractDriver.cpp -o AbstractDriver.o $(CXXLIBS)
 
 AbstractDevice.o: $(SRCDIR)/AbstractDevice.cpp $(SRCDIR)/AbstractDevice.h\
 	$(SRCDIR)/AbstractDriver.h
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/AbstractDevice.cpp -o AbstractDevice.o $(CXXLIBS)
 
-AbstractProtocol.o: $(SRCDIR)/AbstractProtocol.cpp $(SRCDIR)/AbstractProtocol.h
-	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/AbstractProtocol.cpp -o AbstractProtocol.o $(CXXLIBS)
+AbstractConverter.o: $(SRCDIR)/AbstractConverter.cpp $(SRCDIR)/AbstractConverter.h
+	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/AbstractConverter.cpp -o AbstractConverter.o $(CXXLIBS)
 
 # CONCRETE IMPLEMENTATIONS ---------------------------------------------------
