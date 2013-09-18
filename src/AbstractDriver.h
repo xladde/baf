@@ -18,13 +18,14 @@
  * 'AbstractConverter' and 'Controller'  
  */
 class Controller;
-class AbstractConverter<;
+template <typename T1, typename T2> class AbstractConverter;
 class AbstractDevice;
     class XDevice;
+    
 /**
  * @brief Abstract class for 'Driver' objects.
  */
-template < typename T >
+template <typename T3>
 class AbstractDriver
 {
 public:
@@ -33,13 +34,13 @@ public:
     virtual ~AbstractDriver();
 
     // ------------------------------- Abstract ([pure] virtual) I/O-Functions
-    virtual void __write_raw( AbstractDevice*, T ) = 0;
-    virtual T __read_raw( AbstractDevice* ) = 0;
+    virtual void __write_raw( AbstractDevice*, T3 ) = 0;
+    virtual T3 __read_raw( AbstractDevice* ) = 0;
 };
 
 
 // XDriver declarations ------------------------------------------------------EXAMPLE
-class XDriver : AbstractDriver< std::string >
+class XDriver : public AbstractDriver< std::string >
 {
 public:
     XDriver( Controller* );

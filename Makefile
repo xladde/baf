@@ -79,4 +79,7 @@ AbstractDevice.o: $(SRCDIR)/AbstractDevice.cpp $(SRCDIR)/AbstractDevice.h\
 AbstractConverter.o: $(SRCDIR)/AbstractConverter.cpp $(SRCDIR)/AbstractConverter.h
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/AbstractConverter.cpp -o AbstractConverter.o $(CXXLIBS)
 
+Service.o: $(SRCDIR)/Service.cpp $(SRCDIR)/Service.h
+	$(CXX) $(CXXFLAGS) $(SRCDIR)/Service.cpp -o Service.o $(CXXLIBS)
+
 # CONCRETE IMPLEMENTATIONS ---------------------------------------------------
