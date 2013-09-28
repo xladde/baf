@@ -45,11 +45,11 @@ public:
     std::map<std::string, AbstractDevice* > get_devicelist() const;
     void set_devicelist( std::map<std::string, AbstractDevice* > );
 
-    std::map< unsigned char, AbstractDriver* > get_driverlist() const;
-    void set_driverlist( std::map< unsigned char, AbstractDriver* > );
+    std::map< int, AbstractDriver* > get_driverlist() const;
+    void set_driverlist( std::map< int, AbstractDriver* > );
 
-    std::map< unsigned char, AbstractConverter* > get_converterlist() const;
-    void set_converterlist( std::map< unsigned char, AbstractConverter* > );
+    std::map< int, AbstractConverter* > get_converterlist() const;
+    void set_converterlist( std::map< int, AbstractConverter* > );
  
     // ------------------------------------------------------ Member Functions
     /**
@@ -61,7 +61,7 @@ public:
      * @return a vector with filepaths of all files of the given type.
      */
     std::vector< std::string >
-    list_devices( unsigned char t, std::string p, bool rec );
+    list_devices( int t, std::string p, bool rec );
 
     /**
      * @brief Generate a Map with all possible file/device types
@@ -69,7 +69,7 @@ public:
      * @param rec (Optionally) disable recursive scan (to prevent infinite loops e.g.). 
      * @return map with a list for each devtype.
      */
-    std::map< unsigned char, std::vector< std::string > >
+    std::map< int, std::vector< std::string > >
     map_devices( std::string p, bool rec );
 
     /**
@@ -78,18 +78,18 @@ public:
      * @return corresponding object map with AbstractDevices and a name.
      */
     std::map<std::string, AbstractDevice* > 
-    init_devicemap( std::map< unsigned char, std::vector< std::string > > m );
+    init_devicemap( std::map< int, std::vector< std::string > > m );
 
-    AbstractDriver* get_driver( unsigned char );
-    AbstractConverter* get_converter( unsigned char );
+    AbstractDriver* get_driver( int );
+    AbstractConverter* get_converter( int );
     AbstractDevice* get_device( std::string );
 
 protected:
 private:
     // ----------------------------------------------------- Member attributes
     std::map<std::string, AbstractDevice* >       _devices_m;
-    std::map< unsigned char, AbstractDriver* >    _drivers_m;
-    std::map< unsigned char, AbstractConverter* > _converter_m;
+    std::map< int, AbstractDriver* >    _drivers_m;
+    std::map< int, AbstractConverter* > _converter_m;
 }; // end class Controller
 
 #endif /* _CONTROLLER_H_ */
