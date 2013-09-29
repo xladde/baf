@@ -5,8 +5,6 @@
  */
 #include "main.h"
 
-#include "CharacterDevice.h"
-
 
 int main( int argc, char **argv )
 {

@@ -7,7 +7,6 @@
 #define ABSTRACT_DEVICE_H
 
 #include <string>   // std::string lib
-#include <iostream> // input/output
 
 /**
  * @brief   (semi)Polymorph Class representing connected devices.
@@ -48,7 +47,18 @@ public:                                                   // PUBLIC MEMBERS //
 
     // RELEVANT STUFF //
 
+    /**
+     * @brief   Sending-Interface.
+     * @param   What to send to device.
+     * This pure virtual function declares an interface to inheriting classes. 
+     */
     virtual void send( T signal ) = 0;
+    
+    /**
+     * @brief   Receiviing-Interface.
+     * @return  What to get from the devcie.
+     * This pure virtual function declares an interface to inheriting classes. 
+     */
     virtual T receive() = 0;
 
 protected:                                            // INHERITING MEMBERS //
@@ -59,28 +69,6 @@ protected:                                            // INHERITING MEMBERS //
 private:                                                 // PRIVATE MEMBERS //
 
     
-};
-
-// TEST CLASS //
-// Template on how to realize chararacter devices on unix machines. //
-class XDevice : AbstractDevice<std::string>
-{
-public:
-    XDevice( std::string str ) : AbstractDevice<std::string>( str )
-    { /* nothing to do so far */ }
-    ~XDevice() {}
-
-    virtual void send_signal( std::string signalstr )
-    {
-        std::cout << this->_identifier <<":\tsending " << signalstr << std::endl;
-    }
-    virtual std::string receive_signal()
-    {
-        std::cout << this->_identifier <<":\treceiving ... " << std::endl;
-        return std::string("bla");
-    }
-protected:
-private:
 };
 
 #endif

@@ -3,9 +3,10 @@
  * @author t.j.
  * @version 2013-09
  */
-#include <fstream> // file input-output
+#include <fstream> // file input-output (CPP)
+#include <stdio.h> // file input-output (C)
 
-#include "AbstractDevice.h"
+#include "../AbstractDevice.h"
 
 /**
  * @brief   Class CharacterDevice is a specialization of template class
@@ -22,13 +23,13 @@ public:                                                   // PUBLIC MEMBERS //
      *              instance of template class 'AbstractDevice'.
      * @param loc   Location of character device on the system.
      */
-    CharacterDevice( std::string id, std::string loc );
+    CharacterDevice( std::string id, std::string loc );  
 
     /**
      * @brief   (Virtual) Destructor.
      * This destructor is virtual to be called on inherited destructors.
      */
-    ~CharacterDevice();
+    virtual ~CharacterDevice();
 
     // MEMBER HANDLING //
     /**
@@ -47,13 +48,28 @@ public:                                                   // PUBLIC MEMBERS //
 
     // RELEVANT STUFF //
 
+    /**
+     * @brief   Function to write a string to a device.
+     * @param data  String to write.
+     */
     virtual void send( std::string data );
+    
+    /**
+     * @brief   Function to read a string from a device.
+     * @return  String.
+     */
     virtual std::string receive();
 
-    //virtual void ssend( char *data, size_t length );
-    //virtual char* sreceive();
-
 protected:                                            // INHERITING MEMBERS //
+    // INSTANCE HANDLING //
+    /**
+     * @brief   Second constructor.
+     * @param id    Identifier for device.
+     * This constructor is only allowed for directly inheriting structures.
+     */
+    CharacterDevice( std::string id );
+    // MEMBER HANDLING //
+    // RELEVANT STUFF //
 private:                                                 // PRIVATE MEMBERS //
     /**
      * @brief Location of file for this instance.

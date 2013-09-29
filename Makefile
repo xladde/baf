@@ -27,7 +27,8 @@ DOCDIR=./doc
 DEP=\
 	main.o \
 	AbstractDevice.o \
-	CharacterDevice.o
+	CharacterDevice.o \
+	NumericEncoder.o
 	
 
 # BUILD OPTIONS --------------------------------------------------------------
@@ -67,7 +68,11 @@ main.o: $(SRCDIR)/main.cpp $(SRCDIR)/main.h
 AbstractDevice.o: $(SRCDIR)/AbstractDevice.cpp $(SRCDIR)/AbstractDevice.h 
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/AbstractDevice.cpp -o AbstractDevice.o $(CXXLIBS)
 
-CharacterDevice.o: $(SRCDIR)/CharacterDevice.cpp $(SRCDIR)/CharacterDevice.h $(SRCDIR)/AbstractDevice.h 
-	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/CharacterDevice.cpp -o CharacterDevice.o $(CXXLIBS)
+
 
 # CONCRETE IMPLEMENTATIONS ---------------------------------------------------
+CharacterDevice.o: $(SRCDIR)/dev/CharacterDevice.cpp $(SRCDIR)/dev/CharacterDevice.h $(SRCDIR)/AbstractDevice.h 
+	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/dev/CharacterDevice.cpp -o CharacterDevice.o $(CXXLIBS)
+
+NumericEncoder.o: $(SRCDIR)/enc/NumericEncoder.cpp $(SRCDIR)/enc/NumericEncoder.h $(SRCDIR)/AbstractEncoder.h 
+	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/enc/NumericEncoder.cpp -o NumericEncoder.o $(CXXLIBS)
