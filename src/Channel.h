@@ -6,10 +6,11 @@
 #ifndef CHANNEL_H
 #define CHANNEL_H
 
-#include "dev/CharacterDevice.h"
-#include "enc/NumericEncoder.h"
+#include "AbstractDevice.h"
+#include "AbstractEncoder.h"
 
-class Channel : CharacterDevice, NumericEncoder
+class Channel : AbstractDevice< std::string >, 
+                AbstractEncoder< std::string, double >
 {
 public:
     // INSTANCE HANDLING //
