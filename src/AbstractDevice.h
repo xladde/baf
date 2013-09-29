@@ -1,77 +1,86 @@
 /**
- * @file        AbstractDevice.h (GNU GPL3)
- * @author      t.j.
- * @version     2013-09
+ * @file AbstractDevice.h Header for abstract device class.
+ * @author t.j.
+ * @version 2013-09
  */
-#ifndef _ABSTRACT_DEVICE_H_
-#define _ABSTRACT_DEVICE_H_
+#ifndef ABSTRACT_DEVICE_H
+#define ABSTRACT_DEVICE_H
 
-#include <string>
-#include "AbstractDriver.h"
+#include <string>   // std::string lib
+#include <iostream> // input/output
 
-
-
-/** 
- * @brief Forward declaration of class 'AbstractDriver'.
- * @todo resolve circular dependency in 'AbstractDriver' and 'AbstractDevcie'.  
+/**
+ * @brief   (semi)Polymorph Class representing connected devices.
+ * This class represents devices that are conneted to the pc.
  */
-class AbstractDriver;
-
-
+template <typename T>
 class AbstractDevice
 {
-public:
-    // ------------------------------------------------- Instance handling
-    AbstractDevice();
-    virtual ~AbstractDevice();
-    /*struct cmpstruct
-    {
-        bool operator( AbstractDevice* a1, AbstractDevice* a2 )
-            { return a1==a2?true:false; }
-    };*/
+public:                                                   // PUBLIC MEMBERS //
+    // INSTANCE HANDLING //
+    /**
+     * @brief   Constructor to instanciate general devices.
+     * @param id    A string to identify the device. It's recommended
+     *              to use a unique value.
+     * @todo    Generate unique identifier for devices.
+     */
+    AbstractDevice( std::string id ){ _identifier = id; }
 
-    // -------------------------------------------------- Member Functions
-    virtual void open();
-    virtual bool is_open();
-    virtual void close();
-    virtual std::string read_device( void );
-    virtual void write_device( std::string );
+    /**
+     * @brief   (Virtual) Destructor.
+     * This destructor is virtual to be called on inherited destructors.
+     */
+    virtual ~AbstractDevice(){ /* nothing to do so far. */ }
 
-    virtual std::string to_str() = 0;//{ return std::string; }
+    // MEMBER HANDLING //
+    /**
+     * @brief   Setter for identifier.
+     * @param   String for new identifier.
+     * @todo    Setter for identifier with char*-type param.
+     */
+    void set_identifier( std::string id ){ _identifier = id; }
+    
+    /**
+     * @brief   Getter for identifier.
+     * @return  Current identifier.
+     */
+    std::string get_identifier() const { return _identifier; }
+
+    // RELEVANT STUFF //
+
+    virtual void send( T signal ) = 0;
+    virtual T receive() = 0;
+
+protected:                                            // INHERITING MEMBERS //
+    /**
+     * @brief   String as identifier for this instance.
+     */
+    std::string _identifier;
+private:                                                 // PRIVATE MEMBERS //
+
+    
 };
 
-// EXAMPLE
-class XDevice : public AbstractDevice
+// TEST CLASS //
+// Template on how to realize chararacter devices on unix machines. //
+class XDevice : AbstractDevice<std::string>
 {
 public:
-    XDevice();
-    XDevice( std::string, unsigned char, AbstractDriver* );
-    XDevice(const XDevice& );
-    virtual ~XDevice();
-    XDevice& operator=( const XDevice& );
+    XDevice( std::string str ) : AbstractDevice<std::string>( str )
+    { /* nothing to do so far */ }
+    ~XDevice() {}
 
-    void set_path( std::string );
-    std::string get_path() const;
-
-    void set_type( unsigned char );
-    unsigned char get_type() const;
-    
-    void set_driver( AbstractDriver* );
-    AbstractDriver* get_driver() const;
-        
-    void open();
-    bool is_open();
-    void close();
-
-    std::string read_device( void );
-    void write_device( std::string );
-
-    std::string to_str() { return _path_m; }
-
+    virtual void send_signal( std::string signalstr )
+    {
+        std::cout << this->_identifier <<":\tsending " << signalstr << std::endl;
+    }
+    virtual std::string receive_signal()
+    {
+        std::cout << this->_identifier <<":\treceiving ... " << std::endl;
+        return std::string("bla");
+    }
+protected:
 private:
-    std::string     _path_m;
-    unsigned char   _type_m;
-    AbstractDriver *_driver_m;
 };
 
-#endif /* _ABSTRACT_DEVICE_H_ */
+#endif

@@ -1,48 +1,33 @@
 /**
- * @file        main.h (GNU GPL3)
- * @author      t.j.
- * @version     2013-09
+ * @file main.h Header for Main-File.
+ * @author t.j.
+ * @version 2013-09
  */
-#ifndef _MAIN_H_
-#define _MAIN_H_
+#ifndef MAIN_H
+#define MAIN_H
 
-#include "Controller.h"
+// CPP-LIBS ------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <map>
 
-class Main
-{
-public:
-    Main( int argc, char **argv )
-    {
-        std::string initpath;
-        __global_controller = new Controller();
-        if( argc < 2 )
-        {
-            initpath = "../";
-        } else 
-        {
-            for( int i = 1; i < argc; i++ )
-                { __global_arguments.push_back( std::string( argv[i] ) ); }
-            initpath = __global_arguments[0];
-        }
-        /**
-         * @todo Make it Work!
-         */
-        __global_controller->init_devicemap
-            ( __global_controller->map_devices( initpath, true ) );
+// C-LIBS --------------------------------------------------------------------
+#include <stdlib.h>
+#include <sys/types.h>
+#include <dirent.h>
+#include <string.h>
 
-        std::map< std::string, AbstractDevice*> m = __global_controller->get_devicelist();
-        for( std::map< std::string, AbstractDevice*>::iterator it = m.begin();
-            it != m.end(); it++ )
-            { std::cout << it->first << ":\t" << it->second << std::endl; }
-    }
-    ~Main()
-    {
-        if( __global_controller )
-            { delete __global_controller; }
-    }
-private:
-    std::vector< std::string > __global_arguments;
-    Controller*                __global_controller;
-};
+/**
+ * @brief Main function / Program entry point. (For testing purposes)
+ * @param argc Number of arguments given at program start + 1 (proc alias).
+ * @param argv Vector of arguments given at program start. This vector has a 
+ *             size of '<code>argc</code>' and includes the alias of the process.
+ * @return Indicator wether the program was closed correctly ('EXIT_SUCCESS') 
+ *         or an error occured ('EXIT_FAILURE').
+ */
+int main( int argc, char **argv );
 
-#endif /* _MAIN_H_ */
+
+#endif

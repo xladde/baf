@@ -1,16 +1,22 @@
 /**
- * @file        main.cpp (GNU GPL3)
- * @author      t.j.
- * @version     2013-09
+ * @file main.cpp Implementation for Main-File.
+ * @author t.j.
+ * @version 2013-09
  */
 #include "main.h"
 
+#include "CharacterDevice.h"
+
+
 int main( int argc, char **argv )
 {
-    Main *MAIN = new Main( argc, argv );
+    /**
+     * @todo Parse arguments.
+     * @todo Scan directories.
+     * @todo Scan and instanciate devices and driver
+     *
+     */
 
-    /* code */
 
-    delete MAIN; 
-    return 0;
+    return EXIT_SUCCESS;
 }

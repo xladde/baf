@@ -4,6 +4,7 @@
 # author: 	t.j.
 # version:	2013-09
 #
+# To compile with c++ 11
 
 # BUILD CONFIGURATIONS -------------------------------------------------------
 NAME=baf
@@ -25,10 +26,9 @@ DOCDIR=./doc
 
 DEP=\
 	main.o \
-	Controller.o \
-	AbstractDriver.o \
-	AbstractConverter.o \
-	AbstractDevice.o 
+	AbstractDevice.o \
+	CharacterDevice.o
+	
 
 # BUILD OPTIONS --------------------------------------------------------------
 .PHONY: quick
@@ -64,22 +64,10 @@ all: $(DEP)
 main.o: $(SRCDIR)/main.cpp $(SRCDIR)/main.h 
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/main.cpp -o main.o $(CXXLIBS)
 
-Controller.o: $(SRCDIR)/Controller.cpp $(SRCDIR)/Controller.h
-	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/Controller.cpp -o Controller.o $(CXXLIBS)
-
-# Core and abstract objects		
-AbstractDriver.o: $(SRCDIR)/AbstractDriver.cpp $(SRCDIR)/AbstractDriver.h\
-	$(SRCDIR)/AbstractDevice.h $(SRCDIR)/Controller.h  $(SRCDIR)/AbstractConverter.h 
-	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/AbstractDriver.cpp -o AbstractDriver.o $(CXXLIBS)
-
-AbstractDevice.o: $(SRCDIR)/AbstractDevice.cpp $(SRCDIR)/AbstractDevice.h\
-	$(SRCDIR)/AbstractDriver.h
+AbstractDevice.o: $(SRCDIR)/AbstractDevice.cpp $(SRCDIR)/AbstractDevice.h 
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/AbstractDevice.cpp -o AbstractDevice.o $(CXXLIBS)
 
-AbstractConverter.o: $(SRCDIR)/AbstractConverter.cpp $(SRCDIR)/AbstractConverter.h
-	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/AbstractConverter.cpp -o AbstractConverter.o $(CXXLIBS)
-
-Service.o: $(SRCDIR)/Service.cpp $(SRCDIR)/Service.h
-	$(CXX) $(CXXFLAGS) $(SRCDIR)/Service.cpp -o Service.o $(CXXLIBS)
+CharacterDevice.o: $(SRCDIR)/CharacterDevice.cpp $(SRCDIR)/CharacterDevice.h $(SRCDIR)/AbstractDevice.h 
+	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/CharacterDevice.cpp -o CharacterDevice.o $(CXXLIBS)
 
 # CONCRETE IMPLEMENTATIONS ---------------------------------------------------
