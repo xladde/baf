@@ -1,0 +1,15 @@
+/**
+
+@mainpage BAF (Prototype)
+
+@section intro_sec Introduction
+This project aims to build a prototype for a building automation framework. This project is currently not even in alpha-state and it is definitly no realease candidate.
+
+@section install_sec Installation
+There is no need for a direct installation. The sources are provided via <a href="http://www.git-scm.com" target="_blank">Git</a> on Github. Get the sources:
+\code
+$ git clone https://github.com/xladde/baf.git baf
+\endcode
+
+
+**/

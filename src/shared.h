@@ -47,7 +47,7 @@ enum FTYPE {    FT_UKN  = 0,
  * are defined within the 'dirent.h'
  */
 std::vector<std::string> 
-list_files( std::string dir, unsigned char ftype, bool rec=false );
+list_devices( std::string dir, unsigned char ftype, bool rec=false );
 
 /**
  * @brief   Map all devices of a directory, sorted by their filetype.

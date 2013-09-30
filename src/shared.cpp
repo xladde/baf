@@ -32,7 +32,7 @@ list_devices( std::string p, unsigned char t, bool rec )
 
                 if( dir_ent->d_type == t )
                     { v_dev.push_back( std::string( tmp_str ) ); } 
-                else if( dir_ent->d_type == DT_DIR && rec )
+                if( (dir_ent->d_type == DT_DIR) && rec )
                 {
                     std::vector< std::string > tmp_v;
                     v_dev.push_back( std::string( tmp_str ) );

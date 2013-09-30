@@ -15,15 +15,13 @@ int main( int argc, char **argv )
      * @todo Scan and instanciate devices and driver
      *
      */
-    XDevice *dev = new XDevice( "0001", "LOREMIPSUM", "Celsius", 1, 2 );
+    std::vector< std::string > v;
+    v = list_devices(std::string( argc==2?argv[1]:"/dev" ), FT_CHR, true);
+    for( std::vector< std::string >::iterator jt = v.begin();
+         jt != v.end(); jt++ )
+    {
+        std::cout << *jt << std::endl;
+    }
 
-    std::cout << dev->receive() << std::endl;
-    dev->send( "0.3" );
-    std::cout << dev->receive() << std::endl;
-    
-    dev->set_value( 0.3 );
-    std::cout << dev->get_value() << std::endl;
-
-    delete dev;
     return EXIT_SUCCESS;
 }
