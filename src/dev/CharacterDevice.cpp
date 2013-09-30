@@ -34,7 +34,7 @@ CharacterDevice::~CharacterDevice()
 /**
  *
  */
-std::string CharacterDevice::get_location(){ return _location; }
+std::string CharacterDevice::get_location() const { return _location; }
 
 /**
  *

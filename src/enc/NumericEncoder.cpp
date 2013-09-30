@@ -41,10 +41,10 @@ NumericEncoder::~NumericEncoder() { /* Nothing to do so far. */ }
 /**
  * 
  */
-NumericEncoder& NumericEncoder::operator=( const NumericEncoder &enc )
+NumericEncoder& NumericEncoder::operator=( NumericEncoder const& enc )
 {
-    _offset = enc.get_offset();
-    _factor = enc.get_factor();
+    set_offset( enc.get_offset() );
+    set_factor( enc.get_factor() );
     return *this;
 }
 
@@ -52,7 +52,7 @@ NumericEncoder& NumericEncoder::operator=( const NumericEncoder &enc )
 /**
  * 
  */
-double NumericEncoder::get_offset() const   { return _offset; }
+double NumericEncoder::get_offset() const { return _offset; }
 
 /**
  * 
@@ -62,7 +62,7 @@ void NumericEncoder::set_offset( double d ) { _offset = d; }
 /**
  * 
  */
-double NumericEncoder::get_factor() const   { return _factor; }
+double NumericEncoder::get_factor() const { return _factor; }
 
 /**
  * 
@@ -76,10 +76,19 @@ void NumericEncoder::set_factor( double d ) { _factor = d; }
  */
 double NumericEncoder::encode( std::string str )
 {
-    double converted;
+    std::stringstream ss;
+    double            converted;
+
+    ss << str;
+    ss >> converted;
+    converted = (converted + _offset) * _factor;
+
     /**
-     * @todo Convert incoming string to a double value using factor and offset.
+     * @deprecated  Switched to <code>std::stringstream</code> for 
+     *              string-double conversion due to bad performance of
+     *              <code>boost::lexical_cast<T1>(T2 val)</code>.
      */
+    // converted = boost::lexical_cast< double >( receive() );
     return converted;
 }
 
@@ -88,9 +97,19 @@ double NumericEncoder::encode( std::string str )
  */
 std::string NumericEncoder::decode( double dbl )
 {
-    std::string converted;
+    std::stringstream ss;
+    std::string       converted;
+
+    dbl = (dbl * (1/_factor)) - _offset;
+
     /**
-     * @todo Convert incoming string to a double value using 1/factor and negative offset.
+     * @deprecated  Switched to <code>std::stringstream</code> for 
+     *              string-double conversion due to bad performance of
+     *              <code>boost::lexical_cast<T1>(T2 val)</code>.
      */
+    // converted = boost::lexical_cast< std::string >( receive() );
+    ss << dbl;
+    ss >> converted;
+
     return converted;
 }

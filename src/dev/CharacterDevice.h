@@ -4,16 +4,16 @@
  * @version 2013-09
  */
 #include <fstream> // file input-output (CPP)
-#include <stdio.h> // file input-output (C)
+//#include <stdio.h> // file input-output (C)
 
-#include "../AbstractDevice.h"
+#include "AbstractDevice.h"
 
 /**
  * @brief   Class CharacterDevice is a specialization of template class
  *          AbstractDevice. 
  * This class reads files of char devices on unix systems. 
  */
-class CharacterDevice : AbstractDevice< std::string >
+class CharacterDevice : public AbstractDevice< std::string >
 {
 public:                                                   // PUBLIC MEMBERS //
     // INSTANCE HANDLING //
@@ -37,7 +37,7 @@ public:                                                   // PUBLIC MEMBERS //
      * @return  String representing location of file.
      * @todo    Implementaion for location getter with return type 'char*'.
      */
-    std::string get_location();
+    std::string get_location() const;
 
     /**
      * @brief   setter for location of device file.

@@ -6,18 +6,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-// CPP-LIBS ------------------------------------------------------------------
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <map>
-
-// C-LIBS --------------------------------------------------------------------
-#include <stdlib.h>
-#include <sys/types.h>
-#include <dirent.h>
-#include <string.h>
+#include "shared.h"
 
 /**
  * @brief Main function / Program entry point. (For testing purposes)

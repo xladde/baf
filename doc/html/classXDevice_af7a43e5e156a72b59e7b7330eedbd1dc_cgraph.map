@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classNumericEncoder.html#a81b4d01eeb3c24debb06f473eb0e71b3" title="NumericEncoder::get_factor" alt="" coords="236,5,420,35"/>
+<area shape="rect" id="node5" href="$classAbstractDevice.html#a23024414d327ec0fdb6c8413a2d20841" title="Getter for identifier." alt="" coords="231,59,425,88"/>
+<area shape="rect" id="node7" href="$classCharacterDevice.html#ae782a9a05ba81ab0a13e72bd922b10ab" title="getter for location of device file." alt="" coords="229,112,427,141"/>
+<area shape="rect" id="node9" href="$classNumericEncoder.html#ae19d475a0d15cca23998640ee035b238" title="NumericEncoder::get_offset" alt="" coords="236,165,420,195"/>
+<area shape="rect" id="node11" href="$classXDevice.html#a27b138c05ca27d932996427b0e4cafba" title="XDevice::get_unit" alt="" coords="265,219,391,248"/>
+<area shape="rect" id="node13" href="$classNumericEncoder.html#a6e4d1c201c00438cfcb05a5e8432e754" title="NumericEncoder::set_factor" alt="" coords="236,272,420,301"/>
+<area shape="rect" id="node15" href="$classAbstractDevice.html#a16f074c1997ac9aeda13f44f8bdd55a4" title="Setter for identifier." alt="" coords="191,325,465,355"/>
+<area shape="rect" id="node17" href="$classCharacterDevice.html#a0eb87bc759af85b16b31b4961da7b6ac" title="setter for location of device file." alt="" coords="229,379,427,408"/>
+<area shape="rect" id="node19" href="$classNumericEncoder.html#aed047690123c969323158c0a41be6892" title="NumericEncoder::set_offset" alt="" coords="236,432,420,461"/>
+<area shape="rect" id="node21" href="$classXDevice.html#a9eeb50be0e780d27f2f6cf403c822b51" title="XDevice::set_unit" alt="" coords="265,485,391,515"/>
+</map>

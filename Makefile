@@ -23,12 +23,17 @@ CXXLIBS=\
 SRCDIR=./src
 BINDIR=./bin
 DOCDIR=./doc
+DEVDIR=$(SRCDIR)/dev
+ENCDIR=$(SRCDIR)/enc
 
 DEP=\
 	main.o \
 	AbstractDevice.o \
+	AbstractEncoder.o \
 	CharacterDevice.o \
-	NumericEncoder.o
+	NumericEncoder.o \
+	XDevice.o\
+	shared.o
 	
 
 # BUILD OPTIONS --------------------------------------------------------------
@@ -51,7 +56,7 @@ clean:
 	clear
 	sudo rm *.o
 	sudo rm -r $(DOCDIR)/html/*
-	sudo rm -r $(DOCDIR)/man/*
+#	sudo rm -r $(DOCDIR)/man/*
 
 
 .PHONY: all
@@ -65,14 +70,25 @@ all: $(DEP)
 main.o: $(SRCDIR)/main.cpp $(SRCDIR)/main.h 
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/main.cpp -o main.o $(CXXLIBS)
 
-AbstractDevice.o: $(SRCDIR)/AbstractDevice.cpp $(SRCDIR)/AbstractDevice.h 
-	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/AbstractDevice.cpp -o AbstractDevice.o $(CXXLIBS)
+AbstractDevice.o: $(DEVDIR)/AbstractDevice.cpp $(DEVDIR)/AbstractDevice.h 
+	$(CXX) $(CXXFLAGS) -c $(DEVDIR)/AbstractDevice.cpp -o AbstractDevice.o $(CXXLIBS)
 
+AbstractEncoder.o: $(ENCDIR)/AbstractEncoder.cpp $(ENCDIR)/AbstractEncoder.h 
+	$(CXX) $(CXXFLAGS) -c $(ENCDIR)/AbstractEncoder.cpp -o AbstractEncoder.o $(CXXLIBS)
 
 
 # CONCRETE IMPLEMENTATIONS ---------------------------------------------------
-CharacterDevice.o: $(SRCDIR)/dev/CharacterDevice.cpp $(SRCDIR)/dev/CharacterDevice.h $(SRCDIR)/AbstractDevice.h 
-	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/dev/CharacterDevice.cpp -o CharacterDevice.o $(CXXLIBS)
+## DEVICES
+CharacterDevice.o: $(DEVDIR)/CharacterDevice.cpp $(DEVDIR)/CharacterDevice.h $(DEVDIR)/AbstractDevice.h 
+	$(CXX) $(CXXFLAGS) -c $(DEVDIR)/CharacterDevice.cpp -o CharacterDevice.o $(CXXLIBS)
 
-NumericEncoder.o: $(SRCDIR)/enc/NumericEncoder.cpp $(SRCDIR)/enc/NumericEncoder.h $(SRCDIR)/AbstractEncoder.h 
-	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/enc/NumericEncoder.cpp -o NumericEncoder.o $(CXXLIBS)
+XDevice.o: $(DEVDIR)/XDevice.cpp $(DEVDIR)/XDevice.h $(DEVDIR)/CharacterDevice.h $(ENCDIR)/NumericEncoder.h
+	$(CXX) $(CXXFLAGS) -c $(DEVDIR)/XDevice.cpp -o XDevice.o $(CXXLIBS)
+
+## ENCODER
+NumericEncoder.o: $(ENCDIR)/NumericEncoder.cpp $(ENCDIR)/NumericEncoder.h $(ENCDIR)/AbstractEncoder.h 
+	$(CXX) $(CXXFLAGS) -c $(ENCDIR)/NumericEncoder.cpp -o NumericEncoder.o $(CXXLIBS)
+
+# SHARED LIBRARIES -----------------------------------------------------------
+shared.o: $(SRCDIR)/shared.cpp $(SRCDIR)/shared.h
+	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/shared.cpp -o shared.o $(CXXLIBS)

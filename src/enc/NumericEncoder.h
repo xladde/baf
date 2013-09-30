@@ -7,7 +7,8 @@
 #define NUMERIC_ENCODER
 
 #include <sstream>
-#include "../AbstractEncoder.h"
+//#include <boost/lexical_cast.hpp>
+#include "AbstractEncoder.h"
 
 
 /**
