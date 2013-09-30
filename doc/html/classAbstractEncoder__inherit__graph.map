@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classAbstractEncoder.html" title="{AbstractEncoder\&lt; std::string, double \&gt;\n||+ decode()\l+ encode()\l}" alt="" coords="5,177,251,279"/>
-<area shape="rect" id="node5" href="$classNumericEncoder.html" title="{NumericEncoder\n|&#45; _factor\l&#45; _offset\l|+ decode()\l+ encode()\l+ get_factor()\l+ get_offset()\l+ NumericEncoder()\l+ NumericEncoder()\l+ NumericEncoder()\l+ operator=()\l+ set_factor()\l+ set_offset()\l+ ~NumericEncoder()\l}" alt="" coords="55,331,201,607"/>
-<area shape="rect" id="node7" href="$classXDevice.html" title="class XDevice as Testing&#45;Object." alt="" coords="79,659,177,883"/>
-</map>
