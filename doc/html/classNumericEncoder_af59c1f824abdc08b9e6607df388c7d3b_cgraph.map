@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classNumericEncoder.html#a81b4d01eeb3c24debb06f473eb0e71b3" title="NumericEncoder::get_factor" alt="" coords="239,5,423,35"/>
-<area shape="rect" id="node5" href="$classNumericEncoder.html#ae19d475a0d15cca23998640ee035b238" title="NumericEncoder::get_offset" alt="" coords="239,59,423,88"/>
-<area shape="rect" id="node7" href="$classNumericEncoder.html#a6e4d1c201c00438cfcb05a5e8432e754" title="NumericEncoder::set_factor" alt="" coords="239,112,423,141"/>
-<area shape="rect" id="node9" href="$classNumericEncoder.html#aed047690123c969323158c0a41be6892" title="NumericEncoder::set_offset" alt="" coords="239,165,423,195"/>
-</map>
