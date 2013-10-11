@@ -8,8 +8,7 @@
 /**
  *
  */
-std::vector< std::string >
-list_devices( std::string p, unsigned char t, bool rec )
+std::vector< std::string > list_devices( std::string p, unsigned char t, bool rec )
 {
     std::vector< std::string >  v_dev;
     DIR                        *dir;
@@ -49,8 +48,7 @@ list_devices( std::string p, unsigned char t, bool rec )
 /**
  *
  */
-std::map< int, std::vector< std::string > >
-map_devices( std::string p, bool rec )
+std::map< int, std::vector< std::string > > map_devices( std::string p, bool rec )
 {
     std::map< int, std::vector< std::string > > m_dev;
     // optionally correction of path param

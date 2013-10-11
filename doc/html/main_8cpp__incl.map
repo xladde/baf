@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$main_8h.html" title="main.h" alt="" coords="305,83,367,112"/>
+<area shape="rect" id="node26" href="$XDevice_8h.html" title="dev/XDevice.h" alt="" coords="696,83,803,112"/>
+<area shape="rect" id="node7" href="$shared_8h.html" title="shared.h" alt="" coords="300,160,372,189"/>
+<area shape="rect" id="node28" href="$CharacterDevice_8h.html" title="CharacterDevice.h" alt="" coords="684,160,815,189"/>
+<area shape="rect" id="node34" href="$NumericEncoder_8h.html" title="../enc/NumericEncoder.h" alt="" coords="872,160,1037,189"/>
+<area shape="rect" id="node31" href="$AbstractDevice_8h.html" title="AbstractDevice.h" alt="" coords="773,237,896,267"/>
+<area shape="rect" id="node38" href="$AbstractEncoder_8h.html" title="AbstractEncoder.h" alt="" coords="1013,237,1144,267"/>
+</map>

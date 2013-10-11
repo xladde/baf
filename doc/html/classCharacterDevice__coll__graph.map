@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classAbstractDevice.html" title="{AbstractDevice\&lt; std::string \&gt;\n|# _identifier\l|+ AbstractDevice()\l+ get_identifier()\l+ receive()\l+ send()\l+ set_identifier()\l+ ~AbstractDevice()\l}" alt="" coords="75,534,269,706"/>
+<area shape="rect" id="node4" title="STL class." alt="" coords="75,141,155,227"/>
+<area shape="rect" id="node8" href="$classAbstractDevice.html" title="(semi)Polymorph Class representing connected devices. This class represents devices that are conneted..." alt="" coords="200,294,344,466"/>
+<area shape="rect" id="node6" title="STL class." alt="" coords="32,5,197,91"/>
+</map>
