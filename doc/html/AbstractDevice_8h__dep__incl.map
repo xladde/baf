@@ -1,8 +1,0 @@
-<map id="src/dev/AbstractDevice.h" name="src/dev/AbstractDevice.h">
-<area shape="rect" id="node3" href="$AbstractDevice_8cpp.html" title="src/dev/AbstractDevice.cpp" alt="" coords="5,83,189,112"/>
-<area shape="rect" id="node5" href="$CharacterDevice_8h.html" title="src/dev/CharacterDevice.h" alt="" coords="213,83,392,112"/>
-<area shape="rect" id="node7" href="$CharacterDevice_8cpp.html" title="src/dev/CharacterDevice.cpp" alt="" coords="113,160,305,189"/>
-<area shape="rect" id="node9" href="$XDevice_8h.html" title="src/dev/XDevice.h" alt="" coords="329,160,460,189"/>
-<area shape="rect" id="node11" href="$XDevice_8cpp.html" title="src/dev/XDevice.cpp" alt="" coords="251,237,395,267"/>
-<area shape="rect" id="node13" href="$main_8cpp.html" title="src/main.cpp" alt="" coords="419,237,515,267"/>
-</map>

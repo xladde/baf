@@ -1,8 +1,0 @@
-<map id="XDevice" name="XDevice">
-<area shape="rect" id="node2" href="$classCharacterDevice.html" title="Class CharacterDevice is a specialization of template class AbstractDevice. This class reads files of..." alt="" coords="5,529,152,719"/>
-<area shape="rect" id="node4" href="$classAbstractDevice.html" title="{AbstractDevice\&lt; std\l::string \&gt;\n|# _identifier\l|+ AbstractDevice()\l+ get_identifier()\l+ receive()\l+ send()\l+ set_identifier()\l+ ~AbstractDevice()\l}" alt="" coords="8,245,149,435"/>
-<area shape="rect" id="node6" href="$classAbstractDevice.html" title="(semi)Polymorph Class representing connected devices. This class represents devices that are conneted..." alt="" coords="7,6,151,178"/>
-<area shape="rect" id="node8" href="$classNumericEncoder.html" title="{NumericEncoder\n|&#45; _factor\l&#45; _offset\l|+ decode()\l+ encode()\l+ get_factor()\l+ get_offset()\l+ NumericEncoder()\l+ NumericEncoder()\l+ NumericEncoder()\l+ operator=()\l+ set_factor()\l+ set_offset()\l+ ~NumericEncoder()\l}" alt="" coords="176,486,323,762"/>
-<area shape="rect" id="node10" href="$classAbstractEncoder.html" title="{AbstractEncoder\&lt; std\l::string, double \&gt;\n||+ decode()\l+ encode()\l}" alt="" coords="175,280,324,400"/>
-<area shape="rect" id="node12" href="$classAbstractEncoder.html" title="{AbstractEncoder\&lt; T1,\l T2 \&gt;\n||+ decode()\l+ encode()\l}" alt="" coords="175,32,324,152"/>
-</map>

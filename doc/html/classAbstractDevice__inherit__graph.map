@@ -1,5 +1,0 @@
-<map id="AbstractDevice&lt; T &gt;" name="AbstractDevice&lt; T &gt;">
-<area shape="rect" id="node3" href="$classAbstractDevice.html" title="{AbstractDevice\&lt; std\l::string \&gt;\n|# _identifier\l|+ AbstractDevice()\l+ get_identifier()\l+ receive()\l+ send()\l+ set_identifier()\l+ ~AbstractDevice()\l}" alt="" coords="8,245,149,435"/>
-<area shape="rect" id="node5" href="$classCharacterDevice.html" title="Class CharacterDevice is a specialization of template class AbstractDevice. This class reads files of..." alt="" coords="5,485,152,675"/>
-<area shape="rect" id="node7" href="$classXDevice.html" title="class XDevice as Testing&#45;Object." alt="" coords="29,725,128,949"/>
-</map>
