@@ -1,0 +1,26 @@
+var classXDevice =
+[
+    [ "XDevice", "classXDevice.html#a1ef57484cb29ca3b6cfdb7ba84e843a8", null ],
+    [ "XDevice", "classXDevice.html#aae91800d3d6c9bf5302cf393e30853fe", null ],
+    [ "XDevice", "classXDevice.html#a83c8b30f041a5f1ea6d00ea75b7a5de1", null ],
+    [ "~XDevice", "classXDevice.html#ae260fadd8f24c39283572a1f038c9c90", null ],
+    [ "decode", "classXDevice.html#ae7c86aa7fd8f10b4cb9ab4d0f1cd5da3", null ],
+    [ "encode", "classXDevice.html#abd18954c0c3b0cd97da414f70ca7bb56", null ],
+    [ "get_factor", "classXDevice.html#a81b4d01eeb3c24debb06f473eb0e71b3", null ],
+    [ "get_identifier", "classXDevice.html#a23024414d327ec0fdb6c8413a2d20841", null ],
+    [ "get_location", "classXDevice.html#ae782a9a05ba81ab0a13e72bd922b10ab", null ],
+    [ "get_offset", "classXDevice.html#ae19d475a0d15cca23998640ee035b238", null ],
+    [ "get_unit", "classXDevice.html#a27b138c05ca27d932996427b0e4cafba", null ],
+    [ "get_value", "classXDevice.html#aaea5d2257cf085429c5055313c83ab4b", null ],
+    [ "operator=", "classXDevice.html#af7a43e5e156a72b59e7b7330eedbd1dc", null ],
+    [ "receive", "classXDevice.html#a27c4e98366eb05426a173b7ebca068a9", null ],
+    [ "send", "classXDevice.html#abadc9e200ce49cfe6dd6082fa00b97ff", null ],
+    [ "set_factor", "classXDevice.html#a6e4d1c201c00438cfcb05a5e8432e754", null ],
+    [ "set_identifier", "classXDevice.html#a16f074c1997ac9aeda13f44f8bdd55a4", null ],
+    [ "set_location", "classXDevice.html#a0eb87bc759af85b16b31b4961da7b6ac", null ],
+    [ "set_offset", "classXDevice.html#aed047690123c969323158c0a41be6892", null ],
+    [ "set_unit", "classXDevice.html#a9eeb50be0e780d27f2f6cf403c822b51", null ],
+    [ "set_value", "classXDevice.html#a864929eab7587d8dea5f273c325d00e3", null ],
+    [ "_identifier", "classXDevice.html#aba05446e7cd768ae03619685b8d5478e", null ],
+    [ "_unit", "classXDevice.html#aa1d66d400b2b3702b92b16a7f443956d", null ]
+];

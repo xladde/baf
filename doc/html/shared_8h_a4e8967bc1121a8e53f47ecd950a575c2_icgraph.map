@@ -1,0 +1,4 @@
+<map id="list_devices" name="list_devices">
+<area shape="rect" id="node4" href="$main_8h.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main function / Program entry point. (For testing purposes)" alt="" coords="168,5,219,35"/>
+<area shape="rect" id="node6" href="$shared_8h.html#a0999e468d95494b1d169f5f12cb08939" title="Map all devices of a directory, sorted by their filetype." alt="" coords="144,59,243,88"/>
+</map>

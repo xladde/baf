@@ -1,0 +1,5 @@
+<map id="CharacterDevice" name="CharacterDevice">
+<area shape="rect" id="node7" href="$classXDevice.html" title="class XDevice as Testing&#45;Object." alt="" coords="29,725,128,949"/>
+<area shape="rect" id="node2" href="$classAbstractDevice.html" title="{AbstractDevice\&lt; std\l::string \&gt;\n|# _identifier\l|+ AbstractDevice()\l+ get_identifier()\l+ receive()\l+ send()\l+ set_identifier()\l+ ~AbstractDevice()\l}" alt="" coords="8,245,149,435"/>
+<area shape="rect" id="node4" href="$classAbstractDevice.html" title="(semi)Polymorph Class representing connected devices. This class represents devices that are conneted..." alt="" coords="7,6,151,178"/>
+</map>
