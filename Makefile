@@ -55,7 +55,7 @@ documentation:
 clean:
 	clear
 	sudo rm *.o
-	sudo rm -r $(DOCDIR)/www/htmldoc/*
+	sudo rm -r $(DOCDIR)/srcdoc/*
 #	sudo rm -r $(DOCDIR)/man/*
 
 
